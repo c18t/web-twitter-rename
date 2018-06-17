@@ -1,0 +1,7 @@
+/.gitsecret
+/.nuxt
+/.settings
+/.vscode
+/node_modules
+/.env
+/yarn.lock
