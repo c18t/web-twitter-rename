@@ -62,6 +62,7 @@ export default class RenameForm extends Vue {
   }
 
   input {
+    width: 38*1.2rem
     border-radius: 12px 0 0 12px
     padding: 8px
     padding-left: 10px
