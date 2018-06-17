@@ -18,7 +18,10 @@ export default class RenameForm extends Vue {
 
   async emitNewName() {
     const el = document.getElementById('newName') as HTMLInputElement
-    if (el.value === '') alert(RenameForm.errorEmptyName)
+    if (el.value === '') {
+      alert(RenameForm.errorEmptyName)
+      return
+    }
 
     let newName = el.value;
 

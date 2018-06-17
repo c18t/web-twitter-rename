@@ -24,6 +24,9 @@ module.exports = {
       process.env.BASE_URL ||
       `http://${host}:${port}`
   },
+  router: {
+    base: '/twitter_rename_kun/'
+  },
   head: {
     title: "@c18tのTwitterリネームくん",
     meta: [

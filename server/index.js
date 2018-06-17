@@ -1,8 +1,10 @@
 const express = require('express')
 const { Nuxt, Builder } = require('nuxt')
+const Url = require('url');
 const app = express()
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3000
+const baseUrl = Url.parse(process.env.BASE_URL || `http://${host}:${port}/twitter_rename_kun/`).pathname
 const bodyParser = require('body-parser')
 const Twitter = require('twitter')
 
@@ -14,9 +16,9 @@ const client = new Twitter({
 })
 
 app.set('port', port)
-app.use('/api/', bodyParser.json())
+app.use(`${baseUrl}api/`, bodyParser.json())
 
-app.post('/api/emit_new_name', (req, res) => {
+app.post(`${baseUrl}api/emit_new_name`, (req, res) => {
   client.post('account/update_profile', {name: `(/ɯ̹t͡ɕʲi/) ${req.body.name}`}, function(error, data, response) {
     if (!error) {
       // success
@@ -43,5 +45,5 @@ if (config.dev) {
 app.use(nuxt.render)
 app.listen(port, host)
 
-console.log(`Server listening on http://${host}:${port}`)
+console.log(`Server listening on http://${host}:${port}${baseUrl}`)
 
