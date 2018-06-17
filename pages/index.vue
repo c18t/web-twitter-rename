@@ -27,11 +27,11 @@ export default class extends Vue {
 </script>
 <style lang="stylus" scoped>
 .header { 
-  margin: 4rem 4rem 0
+  margin: 4rem 2rem 0
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif
 }
 .body {
-  margin: 0 4rem
+  margin: 0 2rem
   .rename-form-wapper {
     margin: 0 2rem
   }
