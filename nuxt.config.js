@@ -59,6 +59,9 @@ module.exports = {
   */
   css: ["~/assets/css/main.css"],
   build: {},
+  plugins: [
+    { src: '~/plugins/ga.js', ssr: false }
+  ],
   modules: [
     "@nuxtjs/axios",
     "~/modules/typescript.js"
