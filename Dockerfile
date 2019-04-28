@@ -6,6 +6,9 @@ ENV APP_DIR /var/opt/app
 # Listen port(CMD実行時に参照)
 ENV PORT 3000
 
+# 公開ポート
+EXPOSE 3000
+
 # ローカルのソースファイルをコピー
 COPY . ${APP_DIR}
 
@@ -25,9 +28,6 @@ RUN set -x && \
 : "アプリをビルド" && \
   yarn install && \
   yarn build
-
-# 公開ポート
-EXPOSE ${PORT}
 
 # アプリを実行
 ENTRYPOINT [ "/bin/sh", "-c" ]
