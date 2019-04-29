@@ -26,7 +26,7 @@ app.post(`${baseUrl}api/emit_new_name`, (req, res) => {
     }
     else {
       // error
-      res.status(200).json({ error: '不正なリクエストです' })
+      res.status(200).json({ error: '不正なリクエストです', _internalErorr: error })
     }
   });
 })
