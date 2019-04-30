@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const { Nuxt, Builder } = require('nuxt')
 const Url = require('url');

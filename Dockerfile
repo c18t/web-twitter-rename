@@ -31,4 +31,4 @@ RUN set -x && \
 
 # アプリを実行
 ENTRYPOINT [ "/bin/sh", "-c" ]
-CMD [ "eval $(cat .env) && yarn start" ]
+CMD [ "yarn start" ]
