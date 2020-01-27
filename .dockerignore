@@ -1,7 +1,8 @@
 /.gitsecret
 /.nuxt
-/.settings
 /.vscode
+/coverage
 /node_modules
-/.env
-/yarn.lock
+/.editorconfig
+/.env*
+/.node-version
