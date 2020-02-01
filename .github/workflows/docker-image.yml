@@ -17,7 +17,7 @@ jobs:
       - name: Make image name and version
         run: REPOS_L=${GITHUB_REPOSITORY,,}; IMAGE_NAME=docker.pkg.github.com/${REPOS_L}/${REPOS_L#*/}; IMAGE_VERSION=${GITHUB_REF#ref/tags/v}
       - name: Build the Docker image
-        run: docker build . --tag ${IMAGE_NAME}:${IMAGE_VERSION}
+        run: echo ${IMAGE_NAME}:${IMAGE_VERSION}; docker build . --tag ${IMAGE_NAME}:${IMAGE_VERSION}
       - name: Push the image to GitHub Packages Registry
         run: docker push ${IMAGE_NAME}:${IMAGE_VERSION}
       - name: Build the Docker image as latest version
