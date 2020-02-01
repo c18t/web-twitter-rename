@@ -18,7 +18,7 @@ jobs:
         run: |
           REPOS_L=${GITHUB_REPOSITORY,,}
           IMAGE_NAME=docker.pkg.github.com/${REPOS_L}/${REPOS_L#*/}
-          IMAGE_VERSION=${GITHUB_REF#ref/tags/v}
+          IMAGE_VERSION=${GITHUB_REF#refs/tags/v}
           echo ${IMAGE_NAME}:${IMAGE_VERSION} > specific-version.txt
           echo ${IMAGE_NAME}:latest > latest-version.txt
       - name: Build the Docker image
