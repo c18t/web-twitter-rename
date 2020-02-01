@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to GitHub Packages Registry
-        run: docker login -u $GITHUB_ACTOR -p $GITHUB_TOKEN docker.pkg.github.com
+        run: docker login -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
       - name: echo version tag
         run: echo $GITHUB_REF
       #- name: Build the Docker image
