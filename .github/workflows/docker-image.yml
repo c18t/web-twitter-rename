@@ -23,9 +23,9 @@ jobs:
           echo ${IMAGE_NAME}:latest > latest-version.txt
       - name: Build the Docker image
         run: docker build . --tag $(cat specific-version.txt)
+      - name: Add latest version tag
+        run: docker tag $(cat specific-version.txt) $(cat latest-version.txt)
       - name: Push the image to GitHub Packages
         run: docker push $(cat specific-version.txt)
-      - name: Build the Docker image as latest version
-        run: docker build . --tag $(cat latest-version.txt)
       - name: Push the image to GitHub Packages as latest version
         run: docker push $(cat latest-version.txt)
