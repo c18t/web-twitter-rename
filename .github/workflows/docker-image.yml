@@ -15,12 +15,17 @@ jobs:
       - name: Login to GitHub Packages Registry
         run: docker login -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
       - name: Make image name and version
-        run: REPOS_L=${GITHUB_REPOSITORY,,}; IMAGE_NAME=docker.pkg.github.com/${REPOS_L}/${REPOS_L#*/}; IMAGE_VERSION=${GITHUB_REF#ref/tags/v}
+        run: |
+          REPOS_L=${GITHUB_REPOSITORY,,}
+          IMAGE_NAME=docker.pkg.github.com/${REPOS_L}/${REPOS_L#*/}
+          IMAGE_VERSION=${GITHUB_REF#ref/tags/v}
+          echo ${IMAGE_NAME}:${IMAGE_VERSION} > specific-version.txt
+          echo ${IMAGE_NAME}:latest > latest-version.txt
       - name: Build the Docker image
-        run: echo ${IMAGE_NAME}:${IMAGE_VERSION}; docker build . --tag ${IMAGE_NAME}:${IMAGE_VERSION}
+        run: docker build . --tag $(cat specific-version.txt)
       - name: Push the image to GitHub Packages Registry
-        run: docker push ${IMAGE_NAME}:${IMAGE_VERSION}
+        run: docker push $(cat specific-version.txt)
       - name: Build the Docker image as latest version
-        run: docker build . --tag ${IMAGE_NAME}:latest
+        run: docker build . --tag $(cat latest-version.txt)
       - name: Push the image to GitHub Packages Registry as latest version
-        run: docker push ${IMAGE_TAG}:latest
+        run: docker push $(cat latest-version.txt)
