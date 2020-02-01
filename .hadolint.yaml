@@ -1,0 +1,4 @@
+---
+trustedRegistries:
+  - docker.io
+  - docker.pkg.github.com

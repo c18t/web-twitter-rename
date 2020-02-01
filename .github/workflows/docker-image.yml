@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Login to GitHub Packages
-        run: docker login -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
+        run: >
+          docker login -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }}
+          docker.pkg.github.com
       - name: Make image name and version
         run: |
           REPOS_L=${GITHUB_REPOSITORY,,}

@@ -23,6 +23,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## Making
 
+<!-- markdownlint-disable -->
+
 ```shell
 cd ./web-twitter-rename
 # set node version
@@ -30,13 +32,13 @@ nodenv local 13.5.0
 # init nuxt-app
 yarn create nuxt-app .
 ? Project name web-twitter-rename
-? Project description 誰でも設置者のTwitter表示名を変更できるようになります
+? Project description 誰でも設置者のTwitter表示名を変更できます
 ? Author name ɯ̹t͡ɕʲi
 ? Choose the package manager Yarn
 ? Choose UI framework None
 ? Choose custom server framework None (Recommended)
 ? Choose Nuxt.js modules Axios, DotEnv
-? Choose linting tools ESLint, Prettier, Lint staged files, StyleLint
+? Choose linting tools ESLint, Prettier, StyleLint
 ? Choose test framework Jest
 ? Choose rendering mode Universal (SSR)
 ? Choose development tools jsconfig.json (Recommended for VS Code)
@@ -91,3 +93,5 @@ git secret tell -m
 git secret add .env
 git secret hide
 ```
+
+<!-- markdownlint-restore -->
