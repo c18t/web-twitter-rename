@@ -9,8 +9,7 @@
       type="text"
       maxlength="38"
       size="70"
-    />
-    <button @click="emitNewName">変更</button>
+    /><button @click="emitNewName">変更</button>
   </div>
 </template>
 
@@ -77,7 +76,8 @@ export default createComponent({
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0.25rem;
 
-  input, button {
+  input,
+  button {
     border: 1px solid #aaa;
     line-height: 2rem;
     font-size: 1.2rem;
