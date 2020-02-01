@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Login to GitHub Packages Registry
+      - name: Login to GitHub Packages
         run: docker login -u $GITHUB_ACTOR -p ${{ secrets.GITHUB_TOKEN }} docker.pkg.github.com
       - name: Make image name and version
         run: |
@@ -23,9 +23,9 @@ jobs:
           echo ${IMAGE_NAME}:latest > latest-version.txt
       - name: Build the Docker image
         run: docker build . --tag $(cat specific-version.txt)
-      - name: Push the image to GitHub Packages Registry
+      - name: Push the image to GitHub Packages
         run: docker push $(cat specific-version.txt)
       - name: Build the Docker image as latest version
         run: docker build . --tag $(cat latest-version.txt)
-      - name: Push the image to GitHub Packages Registry as latest version
+      - name: Push the image to GitHub Packages as latest version
         run: docker push $(cat latest-version.txt)
